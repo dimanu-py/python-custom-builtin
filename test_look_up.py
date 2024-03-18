@@ -23,3 +23,9 @@ class TestLookUp:
 
         assert look_up[1] == "one"
         assert look_up[2] == "two"
+
+    def test_new_items_can_not_be_added(self):
+        look_up = LookUp([(1, "one"), (2, "two")])
+
+        with pytest.raises(TypeError):
+            look_up[3] = "three"
