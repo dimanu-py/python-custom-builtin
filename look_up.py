@@ -1,3 +1,4 @@
+import bisect
 from typing import Any, Protocol, Mapping, overload, Iterable, Sequence, Iterator
 
 
@@ -58,3 +59,6 @@ class LookUp:
 
     def __iter__(self) -> Iterator[Comparable]:
         return iter(self.keys)
+
+    def __contains__(self, key: object) -> bool:
+        return key in self.keys
