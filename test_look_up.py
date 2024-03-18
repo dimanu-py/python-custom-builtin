@@ -1,4 +1,7 @@
+import pytest
+
 from look_up import LookUp
+
 
 class TestLookUp:
 
@@ -7,12 +10,10 @@ class TestLookUp:
 
         assert len(look_up) == 0
 
-    def test_can_create_from_dictionary(self):
-        look_up = LookUp({1: 'one', 2: 'two'})
+    @pytest.mark.parametrize("source", [{1: "one", 2: "two"}, [(1, 'one'), (2, 'two')]])
+    def test_can_create_from_mapping(self, source):
+        look_up = LookUp(source)
 
-        assert len(look_up) == 2
+        expected_size = len(source)
 
-    def test_can_create_from_sequence(self):
-        look_up = LookUp([(1, 'one'), (2, 'two')])
-
-        assert len(look_up) == 2
+        assert len(look_up) == expected_size
