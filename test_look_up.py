@@ -7,3 +7,7 @@ class TestLookUp:
 
         assert len(look_up) == 0
 
+    def test_can_create_from_dictionary(self):
+        look_up = LookUp({1: 'one', 2: 'two'})
+
+        assert len(look_up) == 2
