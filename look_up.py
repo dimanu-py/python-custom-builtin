@@ -62,3 +62,11 @@ class LookUp:
 
     def __contains__(self, key: object) -> bool:
         return key in self.keys
+
+    def __getitem__(self, key: Comparable) -> Any:
+        index = bisect.bisect_left(self.keys, key)
+
+        if key != self.keys[index]:
+            raise KeyError(key)
+
+        return self.values[index]
