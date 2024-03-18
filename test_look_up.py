@@ -17,3 +17,9 @@ class TestLookUp:
         expected_size = len(source)
 
         assert len(look_up) == expected_size
+
+    def test_can_be_accessed_by_key(self):
+        look_up = LookUp([(1, "one"), (2, "two")])
+
+        assert look_up[1] == "one"
+        assert look_up[2] == "two"
