@@ -52,3 +52,6 @@ class LookUp:
 
         self.keys = [pair[0] for pair in sorted_pairs]
         self.values = [pair[1] for pair in sorted_pairs]
+
+    def __len__(self) -> int:
+        return len(self.keys)
