@@ -1,4 +1,4 @@
-from typing import Any, Protocol
+from typing import Any, Protocol, Mapping
 
 
 class Comparable(Protocol):
@@ -23,3 +23,6 @@ class Comparable(Protocol):
 
     def __ge__(self, other: Any) -> bool:
         ...
+
+
+BaseMapping = Mapping[Comparable, Any]
