@@ -1,4 +1,4 @@
-from typing import Any, Protocol, Mapping, overload, Iterable, Sequence
+from typing import Any, Protocol, Mapping, overload, Iterable, Sequence, Iterator
 
 
 class Comparable(Protocol):
@@ -55,3 +55,6 @@ class LookUp:
 
     def __len__(self) -> int:
         return len(self.keys)
+
+    def __iter__(self) -> Iterator[Comparable]:
+        return iter(self.keys)
