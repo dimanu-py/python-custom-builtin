@@ -29,3 +29,10 @@ class TestLookUp:
 
         with pytest.raises(TypeError):
             look_up[3] = "three"
+
+    def test_can_verify_if_key_is_present(self):
+        look_up = LookUp([(1, "one"), (2, "two")])
+
+        assert 1 in look_up
+        assert 2 in look_up
+        assert 3 not in look_up
